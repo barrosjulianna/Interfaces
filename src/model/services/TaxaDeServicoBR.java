@@ -1,6 +1,6 @@
 package model.services;
 
-public class TaxaDeServicoBR {
+public class TaxaDeServicoBR implements TaxaDeServico{
 
 	public double tax(double amount) {
 		if(amount<=100) {

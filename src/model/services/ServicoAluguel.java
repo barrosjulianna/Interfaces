@@ -9,12 +9,12 @@ public class ServicoAluguel {
 	private Double precoPorDia;
 	private Double precoPorHora;
 	
-	private TaxaDeServicoBR taxaDeServicoBR;
+	private TaxaDeServico taxaDeServico;
 
-	public ServicoAluguel(Double precoPorDia, Double precoPorHora, TaxaDeServicoBR taxaDeServicoBR) {
+	public ServicoAluguel(Double precoPorDia, Double precoPorHora, TaxaDeServico taxaDeServico) {
 		this.precoPorDia = precoPorDia;
 		this.precoPorHora = precoPorHora;
-		this.taxaDeServicoBR = taxaDeServicoBR;
+		this.taxaDeServico = taxaDeServico;
 	}
 	
 	public void ProcessoDaFatura(AluguelCarro aluguelCarro) {
@@ -31,7 +31,7 @@ public class ServicoAluguel {
 			pagamentoBasico= Math.ceil(hours/24)*precoPorDia;
 		}
 		
-		double tax =taxaDeServicoBR.tax(pagamentoBasico);
+		double tax =taxaDeServico.tax(pagamentoBasico);
 		
 		aluguelCarro.setFatura(new Fatura(pagamentoBasico,tax));
 	}
